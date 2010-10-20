@@ -13,7 +13,7 @@
 """
 
 from .restconverter import rest_to_html
-import markdown.markdown
+from markdown import markdown
 
 def markup_to_html(format, text):
     """Convert supported marked-up input to HTML output"""
