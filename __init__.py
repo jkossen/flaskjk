@@ -11,5 +11,5 @@
 
 from .viewer import Viewer
 from .helpers import hashify, slugify, summarize
-from .markup import markup_to_html
+from .markup import markup_to_html, multi_replace
 
