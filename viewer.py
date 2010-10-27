@@ -14,11 +14,15 @@ import os
 
 class Viewer(object):
     """Class to handle views (as in Model/View/Controller)"""
-    def __init__(self, app, template_path):
+    def __init__(self, app, template_path, upload_path=None):
         super(Viewer, self).__init__()
         self.app = app
         self.template_path = template_path
         self.static_path = os.path.join(app.root_path, 'templates', template_path, app.config['THEME'], 'static')
+        if upload_path is None:
+            self.upload_path = os.path.join(app.root_path, 'uploads')
+        else:
+            self.upload_path = upload_path
 
     def view(self, rule, **options):
         """ Decorator for views """
@@ -37,3 +41,8 @@ class Viewer(object):
     def static(self, filename):
         """Send static files such as style sheets, JavaScript, etc."""
         return send_from_directory(self.static_path, filename)
+
+    def uploaded(self, filename):
+        """Send static files from the uploads directory."""
+        return send_from_directory(self.upload_path, filename)
+
