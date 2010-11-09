@@ -27,7 +27,7 @@ def slugify(text, delim=u'-', maxlen=128):
     Based on http://flask.pocoo.org/snippets/5/
 
     """
-    punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
+    punct_re = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.:]+')
     result = []
     for word in punct_re.split(text.lower()):
         word = normalize('NFKD', unicode(word)).encode('ascii', 'ignore')
