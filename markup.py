@@ -12,14 +12,14 @@
     :license: BSD, see LICENSE for more details.
 """
 
-from .restconverter import rest_to_html
+from .restconverter import rest_to_html_fragment
 from markdown import markdown
 import re
 
 def markup_to_html(format, text):
     """Convert supported marked-up input to HTML output"""
     if format.value == 'rest':
-        return rest_to_html(text)
+        return rest_to_html_fragment(text)
     elif format.value == 'markdown':
         return markdown(text)
 
