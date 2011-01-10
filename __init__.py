@@ -11,6 +11,6 @@
 
 from .viewer import Viewer
 from .paginator import Paginator
-from .helpers import hashify, slugify, summarize
+from .helpers import slugify, summarize, encrypt_password, validate_password
 from .markup import markup_to_html, multi_replace
 
