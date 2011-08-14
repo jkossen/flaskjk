@@ -27,9 +27,8 @@ class Viewer(object):
     def view(self, rule, **options):
         """ Decorator for views """
         complete_rule = '/%s%s' % (self.app.config['PREFIX'], self.app.config['ROUTES'][rule])
-
         def decorator(f):
-            self.app.add_url_rule(complete_rule, None, f, **options)
+            self.app.add_url_rule(complete_rule, f.__name__, f, **options)
             return f
         return decorator
 
